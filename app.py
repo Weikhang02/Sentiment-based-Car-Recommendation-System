@@ -4,6 +4,10 @@ import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+
 
 stop_words = set(stopwords.words('english'))
 abbreviation_dict = {
