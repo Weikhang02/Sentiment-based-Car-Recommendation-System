@@ -4,9 +4,6 @@ import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
-import pymysql
-pymysql.install_as_MySQLdb()
-
 
 # Preprocess Functions
 def replace_abbreviations(text, abbreviation_dict):
