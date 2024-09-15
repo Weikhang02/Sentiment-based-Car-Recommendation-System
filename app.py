@@ -5,6 +5,16 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
 
+stop_words = set(stopwords.words('english'))
+abbreviation_dict = {
+    'wif': 'with',
+    'hv': 'have',
+    'EV': 'Electric Vehicle',
+    'shld': 'should',
+    'i.g.': 'for example',
+    'btw': 'by the way',
+    'bc': 'because'
+}
 # Preprocess Functions
 def replace_abbreviations(text, abbreviation_dict):
     words = text.split()
