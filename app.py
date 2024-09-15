@@ -11,13 +11,13 @@ from nltk.corpus import stopwords
 
 stop_words = set(stopwords.words('english'))
 abbreviation_dict = {
-    'wif': 'with',
-    'hv': 'have',
-    'EV': 'Electric Vehicle',
-    'shld': 'should',
-    'i.g.': 'for example',
-    'btw': 'by the way',
-    'bc': 'because'
+    "wif": "with",
+    "hv": "have",
+    'EV": "Electric Vehicle",
+    "shld": "should",
+    "i.g.": "for example",
+    "btw": "by the way",
+    "bc": "because"
 }
 # Preprocess Functions
 def replace_abbreviations(text, abbreviation_dict):
