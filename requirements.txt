@@ -4,3 +4,4 @@ vaderSentiment
 scikit-learn
 matplotlib
 wordcloud
+nltk==3.8.1
