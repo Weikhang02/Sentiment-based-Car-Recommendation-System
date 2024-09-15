@@ -34,7 +34,7 @@ def get_sentiment(review):
     return analyzer.polarity_scores(review)['compound']
 
 # Load dataset
-df = pd.read_csv("Review(Latest).csv", encoding='ISO-8859-1')
+df = pd.read_csv("processed_reviews.csv", encoding='ISO-8859-1')
 df_reviews = df.dropna()
 
 # Extract car features (year, brand, name)
