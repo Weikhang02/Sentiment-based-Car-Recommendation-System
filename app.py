@@ -20,6 +20,7 @@ abbreviation_dict = {
     "bc": "because"
 }
 # Preprocess Functions
+# Functions
 def replace_abbreviations(text, abbreviation_dict):
     words = text.split()
     replaced_text = ' '.join([abbreviation_dict.get(word, word) for word in words])
@@ -31,6 +32,7 @@ def replace_supersub(text):
     text = super_regex.sub(lambda m: str(unicodedata.numeric(m.group())), text)
     text = sub_regex.sub(lambda m: str(unicodedata.numeric(m.group())), text)
     return text
+
 
 # Function to extract year, brand, and name from the car title
 def extract_year_brand_name(title):
@@ -55,7 +57,9 @@ df_reviews = df.dropna()
 df_reviews[['Car_Year', 'Car_Brand', 'Car_Name']] = df_reviews['Vehicle_Title'].apply(lambda x: pd.Series(extract_year_brand_name(x)))
 
 # Add a preprocessed reviews column (you can modify preprocessing as needed)
-df_reviews['reviews_cleaned'] = df_reviews['Review'].apply(replace_abbreviations).apply(replace_supersub)
+# Apply the abbreviation replacement with the dictionary
+df_reviews['reviews_cleaned'] = df_reviews['Review'].apply(lambda x: replace_abbreviations(x, abbreviation_dict))
+df_reviews['reviews_cleaned'] = df_reviews['reviews_cleaned'].apply(replace_supersub)
 df_reviews['vader_ss'] = df_reviews['reviews_cleaned'].apply(get_sentiment)
 df_reviews['vader_ss_normalize'] = df_reviews['vader_ss'].apply(lambda x: 1 if x >= 0 else 0)
 # Function to rank the cars based on sentiment score
