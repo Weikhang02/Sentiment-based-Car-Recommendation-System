@@ -13,7 +13,7 @@ stop_words = set(stopwords.words('english'))
 abbreviation_dict = {
     "wif": "with",
     "hv": "have",
-    'EV": "Electric Vehicle",
+    "EV": "Electric Vehicle",
     "shld": "should",
     "i.g.": "for example",
     "btw": "by the way",
