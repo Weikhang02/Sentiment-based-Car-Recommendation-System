@@ -1,0 +1,21 @@
+import pkg_resources
+
+# List of packages as mentioned in the code
+packages = [
+    'pandas', 'numpy', 'seaborn', 'nltk', 'googletrans==4.0.0-rc1', 're', 'unicodedata', 
+    'matplotlib', 'collections', 'sklearn', 'imblearn', 'torch', 'tensorflow', 
+    'xgboost', 'joblib', 'wordcloud', 'vaderSentiment', 'textblob', 'afinn', 'pattern', 
+    'flair', 'snownlp', 'streamlit', 'transformers'
+]
+
+# Create a requirements.txt list with the versions installed in the environment
+installed_packages = [(d.project_name, d.version) for d in pkg_resources.working_set]
+
+# Filter the packages to get their current versions
+requirements = []
+for package in packages:
+    for installed_package in installed_packages:
+        if package.lower() == installed_package[0].lower():
+            requirements.append(f"{installed_package[0]}=={installed_package[1]}")
+
+requirements
